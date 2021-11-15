@@ -1,1 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<!-- 게시물 리스트 -->
+	<select id="selectBoard" resultType="BoardVo">
+	SELECT
+		NO AS boardNo
+		,TITLE AS boardTitle
+		,CONTENT AS boardContent
+		,REG_DT AS regDt
+		,VIEWS AS boardViews
+		,WRITER AS boardWriter
+		FROM sg_board
+	ORDER BY NO DESC
+	</select>
+</mapper>
