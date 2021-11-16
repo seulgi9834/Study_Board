@@ -9,4 +9,6 @@ public interface BoardService {
 	public List<BoardVo> selectBoard(); // 게시물 리스트 읽기
 
 	public int insertBoard(BoardVo vo); // 게시물 작성
+
+	public BoardVo selectBoardReader(BoardVo vo); // 게시물 읽기
 }

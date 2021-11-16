@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mypage.www.service.BoardService;
 import com.mypage.www.vo.BoardVo;
@@ -47,5 +48,9 @@ public class BoardController {
 		return "redirect:/board";
 	}
 
-
+	@RequestMapping(value="/read")
+	String read(@RequestParam("boardNo") String boardNo, Model model, BoardVo vo) {
+		model.addAttribute("list",service.selectBoardReader(vo));
+		return "board/read";
+	}
 }

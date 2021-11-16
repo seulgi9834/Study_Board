@@ -2,7 +2,7 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 <typeAliases>
-<typeAlias alias="boardVo" type="com.mypage.www.vo.BoardVo"/>
+<typeAlias alias="BoardVo" type="com.mypage.www.vo.BoardVo"/>
 </typeAliases>
 
 </configuration>

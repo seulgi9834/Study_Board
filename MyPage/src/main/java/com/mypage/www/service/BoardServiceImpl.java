@@ -29,4 +29,12 @@ public class BoardServiceImpl implements BoardService {
 	public int insertBoard(BoardVo vo) {
 		return dao.insertBoard(vo);
 	}
+
+	/**
+	 * 게시물 읽기
+	 */
+	@Override
+	public BoardVo selectBoardReader(BoardVo vo) {
+		return dao.selectBoardReader(vo);
+	}
 }

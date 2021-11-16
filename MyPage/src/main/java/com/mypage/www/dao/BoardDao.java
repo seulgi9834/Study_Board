@@ -30,4 +30,13 @@ public class BoardDao {
 	public int insertBoard(BoardVo vo) {
 		return sqlSession.insert("board.insertBoard", vo);
 	}
+
+	/**
+	 * 게시글 읽기
+	 * @param vo
+	 * @return
+	 */
+	public BoardVo selectBoardReader(BoardVo vo) {
+		return sqlSession.selectOne("board.selectBoardReader",vo);
+	}
 }
