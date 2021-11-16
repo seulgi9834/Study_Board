@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mypage.www.service.BoardService;
+import com.mypage.www.vo.BoardVo;
 
 @Controller
 @RequestMapping(value="board")
@@ -24,4 +26,26 @@ public class BoardController {
 		model.addAttribute("list", service.selectBoard());
 		return "board/list";
 	}
+
+	/**
+	 * 게시글 작성 페이지
+	 * @return
+	 */
+	@RequestMapping(value="write")
+	String boardWrite() {
+		return "board/write";
+	}
+
+	/**
+	 * 작성된 게시글 등록
+	 * @param vo
+	 * @return
+	 */
+	@RequestMapping(value="regist", method=RequestMethod.POST)
+	String boardRegist(BoardVo vo) {
+		int res = service.insertBoard(vo);
+		return "redirect:/board";
+	}
+
+
 }

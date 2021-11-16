@@ -13,4 +13,23 @@
 		FROM SG_BOARD
 	ORDER BY NO DESC
 	</select>
+
+	<!-- 게시글 쓰기 -->
+	<insert id="insertBoard">
+	INSERT INTO SG_BOARD
+	(
+	NO
+	,TITLE
+	,CONTENT
+	,REG_DT
+	,WRITER
+	)
+	VALUES(
+	(SELECT MAX(X.NO)+1 FROM SG_BOARD X)
+	,#{boardTitle}
+	,#{boardContent}
+	,NOW()
+	,#{boardWriter}
+	)
+	</insert>
 </mapper>

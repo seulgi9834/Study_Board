@@ -21,4 +21,12 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVo> selectBoard(){
 		return dao.selectBoard();
 	}
+
+	/**
+	 * 게시물 쓰기
+	 */
+	@Override
+	public int insertBoard(BoardVo vo) {
+		return dao.insertBoard(vo);
+	}
 }

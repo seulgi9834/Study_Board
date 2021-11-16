@@ -21,4 +21,13 @@ public class BoardDao {
 	public List <BoardVo> selectBoard(){
 		return sqlSession.selectList("board.selectBoard");
 	}
+
+	/**
+	 * 게시글 작성
+	 * @param vo
+	 * @return
+	 */
+	public int insertBoard(BoardVo vo) {
+		return sqlSession.insert("board.insertBoard", vo);
+	}
 }
