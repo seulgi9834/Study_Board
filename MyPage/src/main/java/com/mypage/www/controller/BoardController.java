@@ -48,9 +48,50 @@ public class BoardController {
 		return "redirect:/board";
 	}
 
+	/**
+	 * 원하는 게시물 읽기
+	 * @param boardNo
+	 * @param model
+	 * @param vo
+	 * @return
+	 */
 	@RequestMapping(value="/read")
 	String read(@RequestParam("boardNo") String boardNo, Model model, BoardVo vo) {
 		model.addAttribute("list",service.selectBoardReader(vo));
 		return "board/read";
 	}
+
+	/**
+	 * 게시물 수정 페이지
+	 * @return
+	 */
+	@RequestMapping(value="/modify", method=RequestMethod.GET)
+	String boardModify(@RequestParam("boardNo") String boardNo, BoardVo vo, Model model) {
+		model.addAttribute("list", service.selectBoardReader(vo));
+		return "board/modify";
+	}
+
+	/**
+	 * 수정된 게시물 갱신
+	 * @param vo
+	 * @return
+	 */
+	@RequestMapping(value="/update", method=RequestMethod.POST)
+	String boardUpdate(BoardVo vo) {
+		service.modifyBoard(vo);
+		return "redirect:/board";
+	}
+
+	/**
+	 * 게시물 삭제
+	 * @param boardNo
+	 * @param vo
+	 * @return
+	 */
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
+	String boardDelete(@RequestParam("boardNo") String boardNo, BoardVo vo) {
+		service.deleteBoard(vo);
+		return "redirect:/board";
+	}
+
 }

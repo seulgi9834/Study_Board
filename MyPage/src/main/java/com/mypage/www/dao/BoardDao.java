@@ -39,4 +39,22 @@ public class BoardDao {
 	public BoardVo selectBoardReader(BoardVo vo) {
 		return sqlSession.selectOne("board.selectBoardReader",vo);
 	}
+
+	/**
+	 * 게시물 수정
+	 * @param vo
+	 * @return
+	 */
+	public int modifyBoard(BoardVo vo) {
+		return sqlSession.update("board.modifyBoard",vo);
+	}
+
+	/**
+	 * 게시물 삭제
+	 * @param vo
+	 * @return
+	 */
+	public int deleteBoard(BoardVo vo) {
+		return sqlSession.delete("board.deleteBoard",vo);
+	}
 }

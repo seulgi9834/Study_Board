@@ -11,4 +11,8 @@ public interface BoardService {
 	public int insertBoard(BoardVo vo); // 게시물 작성
 
 	public BoardVo selectBoardReader(BoardVo vo); // 게시물 읽기
+
+	public int modifyBoard(BoardVo vo); // 게시물 수정
+
+	public int deleteBoard(BoardVo vo); // 게시물 삭제
 }

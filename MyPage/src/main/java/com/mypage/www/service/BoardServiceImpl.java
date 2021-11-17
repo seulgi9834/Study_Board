@@ -37,4 +37,20 @@ public class BoardServiceImpl implements BoardService {
 	public BoardVo selectBoardReader(BoardVo vo) {
 		return dao.selectBoardReader(vo);
 	}
+
+	/**
+	 * 게시물 수정
+	 */
+	@Override
+	public int modifyBoard(BoardVo vo) {
+		return dao.modifyBoard(vo);
+	}
+
+	/**
+	 * 게시물 삭제
+	 */
+	@Override
+	public int deleteBoard(BoardVo vo) {
+		return dao.deleteBoard(vo);
+	}
 }

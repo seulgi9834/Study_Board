@@ -3,47 +3,64 @@
 <mapper namespace="board">
 	<!-- 게시물 리스트 읽기 -->
 	<select id="selectBoard" resultType="BoardVo">
-	SELECT
+		SELECT
 		NO AS boardNo
 		,TITLE AS boardTitle
 		,CONTENT AS boardContent
-		,REG_DT AS regDt
+		,REG_DT AS
+		regDt
 		,VIEWS AS boardViews
 		,WRITER AS boardWriter
 		FROM SG_BOARD
-	ORDER BY NO DESC
+		ORDER BY NO DESC
 	</select>
 
 	<!-- 게시글 쓰기 -->
 	<insert id="insertBoard">
-	INSERT INTO SG_BOARD
-	(
-	NO
-	,TITLE
-	,CONTENT
-	,REG_DT
-	,WRITER
-	)
-	VALUES(
-	(SELECT MAX(X.NO)+1 FROM SG_BOARD X)
-	,#{boardTitle}
-	,#{boardContent}
-	,NOW()
-	,#{boardWriter}
-	)
+		INSERT INTO SG_BOARD
+		(
+		NO
+		,TITLE
+		,CONTENT
+		,REG_DT
+		,WRITER
+		)
+		VALUES(
+		(SELECT MAX(X.NO)+1 FROM SG_BOARD X)
+		,#{boardTitle}
+		,#{boardContent}
+		,NOW()
+		,#{boardWriter}
+		)
 	</insert>
 
 	<!-- 게시물 읽기 -->
 	<select id="selectBoardReader" resultType="BoardVo">
-	SELECT
-		TITLE AS boardTitle
+		SELECT
+		NO AS boardNo
+		,TITLE AS boardTitle
 		,CONTENT AS boardContent
 		,REG_DT AS regDt
-		,VIEWS AS boardViews
+		,VIEWS AS
+		boardViews
 		,WRITER AS boardWriter
 		FROM SG_BOARD
 		WHERE NO = #{boardNo}
 	</select>
 
+	<!-- 게시물 수정 -->
+	<update id="modifyBoard">
+		UPDATE SG_BOARD
+		SET
+		CONTENT=#{boardContent}
+		,TITLE=#{boardTitle}
+		,WRITER=#{boardWriter}
+		WHERE NO=#{boardNo}
+	</update>
 
+	<!-- 게시물 삭제 -->
+	<delete id="deleteBoard">
+	DELETE FROM SG_BOARD
+	WHERE NO=#{boardNo}
+	</delete>
 </mapper>
