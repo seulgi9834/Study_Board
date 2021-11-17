@@ -3,6 +3,7 @@
 <configuration>
 <typeAliases>
 <typeAlias alias="BoardVo" type="com.mypage.www.vo.BoardVo"/>
+<typeAlias alias="UserVo" type="com.mypage.www.vo.UserVo"/>
 </typeAliases>
 
 </configuration>

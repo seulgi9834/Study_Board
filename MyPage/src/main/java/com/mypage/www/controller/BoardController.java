@@ -1,13 +1,21 @@
 package com.mypage.www.controller;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.mypage.www.service.BoardService;
+import com.mypage.www.utils.UploadFileUtils;
 import com.mypage.www.vo.BoardVo;
 
 @Controller
@@ -16,6 +24,9 @@ public class BoardController {
 
 	@Autowired
 	BoardService service;
+
+	@Resource(name="uploadPath")
+	private String uploadPath;
 
 	/**
 	 * 게시판 리스트 읽기
@@ -41,10 +52,25 @@ public class BoardController {
 	 * 작성된 게시글 등록
 	 * @param vo
 	 * @return
+	 * @throws Exception
+	 * @throws IOException
 	 */
 	@RequestMapping(value="regist", method=RequestMethod.POST)
-	String boardRegist(BoardVo vo) {
-		int res = service.insertBoard(vo);
+	String boardRegist(BoardVo vo, MultipartFile file) throws IOException, Exception {
+
+		String imgUploadPath = uploadPath + File.separator +"ckUpload";
+		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+		String fileName = null;
+
+		if(file!=null) {
+			fileName =  UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);
+			}else {
+			fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
+		}
+
+		vo.setFileName(File.separator + "ckUpload" + ymdPath + File.separator + fileName);
+		vo.setThumFileName(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" +fileName);
+		service.insertBoard(vo);
 		return "redirect:/board";
 	}
 

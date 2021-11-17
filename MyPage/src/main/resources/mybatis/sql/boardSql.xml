@@ -24,6 +24,7 @@
 		,CONTENT
 		,REG_DT
 		,WRITER
+		,FILE_NM
 		)
 		VALUES(
 		(SELECT MAX(X.NO)+1 FROM SG_BOARD X)
@@ -31,6 +32,7 @@
 		,#{boardContent}
 		,NOW()
 		,#{boardWriter}
+		,#{fileName}
 		)
 	</insert>
 

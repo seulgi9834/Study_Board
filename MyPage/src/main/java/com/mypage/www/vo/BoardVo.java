@@ -11,7 +11,14 @@ public class BoardVo {
 	private Integer boardViews; // 게시물 조회수
 	private String boardContent; // 게시물 내용
 	private String fileName; // 게시물 첨부파일명
+	private String thumFileName; // 썸네일 첨부파일 이름
 
+	public String getThumFileName() {
+		return thumFileName;
+	}
+	public void setThumFileName(String thumFileName) {
+		this.thumFileName = thumFileName;
+	}
 	public Integer getBoardNo() {
 		return boardNo;
 	}

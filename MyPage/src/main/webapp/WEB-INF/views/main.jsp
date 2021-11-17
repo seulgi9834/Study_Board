@@ -15,8 +15,8 @@
 	</div><br>
 	<div class="index">
 		<ul>
-			<li><a href="#">메인화면</a></li>
-			<li><a href="#">공지사항</a></li>
+			<li><a href="/">메인화면</a></li>
+			<li><a href="/">공지사항</a></li>
 			<li><a href="/board">자유게시판</a></li>
 		</ul>
 	</div>

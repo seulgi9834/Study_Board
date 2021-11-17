@@ -13,7 +13,8 @@
 	<div class="title">
 		<h2>자유게시판 글쓰기</h2>
 	</div>
-	<form action="/board/regist" method="post">
+	<form action="/board/regist" method="post"
+		enctype="multipart/form-data">
 		<label for="boardTitle">제목</label> <input id="boardTitle"
 			name="boardTitle" type="text"><br> <label
 			for="boardWriter">작성자</label> <input id="boardWriter"
@@ -32,7 +33,13 @@
 
 			CKEDITOR.replace("boardContent", ckeditor_config);
 		</script>
+		<br>
+
+		<input type="file" name="file"/>
+
+
 		<br> <input type="submit" value="글쓰기">
 	</form>
+
 </body>
 </html>
