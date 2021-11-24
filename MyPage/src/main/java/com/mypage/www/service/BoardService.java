@@ -15,4 +15,12 @@ public interface BoardService {
 	public int modifyBoard(BoardVo vo); // 게시물 수정
 
 	public int deleteBoard(BoardVo vo); // 게시물 삭제
+
+	public int countBoard(); // 게시물 카운트
+
+	public List pageBoard(int displayPost, int postNum); // 게시물 페이지네이션
+
+	public List<BoardVo> searchBoard(int displayPost, int postNum, String searchType, String keyword); // 게시물 검색
+
+	public int searchCount(String searchType, String keyword); // 검색된 게시물의 갯수
 }

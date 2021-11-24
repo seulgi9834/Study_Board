@@ -4,6 +4,7 @@
 <typeAliases>
 <typeAlias alias="BoardVo" type="com.mypage.www.vo.BoardVo"/>
 <typeAlias alias="UserVo" type="com.mypage.www.vo.UserVo"/>
+<typeAlias alias="ReplyVo" type="com.mypage.www.vo.ReplyVo"/>
 </typeAliases>
 
 </configuration>

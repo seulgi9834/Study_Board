@@ -139,6 +139,7 @@
     <artifactId>jackson-core</artifactId>
     <version>2.12.3</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
 <dependency>
     <groupId>net.coobird</groupId>
@@ -157,7 +158,43 @@
     <artifactId>imgscalr-lib</artifactId>
     <version>4.2</version>
 </dependency>
+<!-- 보안 관련 라이브러리 -->
+<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-core</artifactId>
+    <version>5.5.2</version>
+</dependency>
 
+<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-web</artifactId>
+    <version>5.5.2</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-config</artifactId>
+    <version>5.5.2</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto -->
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-crypto</artifactId>
+    <version>5.5.2</version>
+</dependency>
+<dependency>
+<groupId>com.fasterxml.jackson.core</groupId>
+<artifactId>jackson-databind</artifactId>
+<version>2.9.6</version>
+</dependency>
+
+<dependency>
+<groupId>org.codehaus.jackson</groupId>
+<artifactId>jackson-mapper-asl</artifactId>
+<version>1.9.13</version>
+</dependency>
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>

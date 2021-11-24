@@ -6,14 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>자유게시판</title>
+<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/main.jsp" />
 	<div class="title">
 		<h2>자유게시판</h2>
-		<button type="button" onclick="location.href='board/write'">글쓰기</button>
+		<c:if test="${user!=null}">
+		<button type="button" class="btn btn-default" onclick="location.href='/write'">글쓰기</button>
+		</c:if>
 	</div>
-	<table class="table">
+	<table class="table table-hover ">
 		<thead>
 			<tr>
 				<th width=5%>번호</th>
@@ -22,6 +25,8 @@
 				<th width=20%>날짜</th>
 				<th width=5%>조회수</th>
 			</tr>
+			</thead>
+			<tbody>
 			<c:forEach items="${list}" var="item">
 				<tr>
 					<td>${item.boardNo}</td>
@@ -31,7 +36,9 @@
 					<td>${item.boardViews}</td>
 				</tr>
 			</c:forEach>
+			</tbody>
 	</table>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="resources/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>

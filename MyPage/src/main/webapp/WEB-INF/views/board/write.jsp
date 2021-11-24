@@ -16,27 +16,13 @@
 	<form action="/board/regist" method="post"
 		enctype="multipart/form-data">
 		<label for="boardTitle">제목</label> <input id="boardTitle"
-			name="boardTitle" type="text"><br> <label
-			for="boardWriter">작성자</label> <input id="boardWriter"
-			name="boardWriter" type="text"><br>
+			name="boardTitle" type="text"><br>
+		<input type="hidden" name="boardWriter" value="${user.userNM}" readonly="readonly"/>
 		<p>내용</p>
 		<label for="content"></label>
 		<textarea style="width: 500px; height: 500px" id="boardContent"
 			name="boardContent"></textarea>
-		<script>
-			var ckeditor_config = {
-				resize_enaleb : false,
-				enterMode : CKEDITOR.ENTER_BR,
-				shiftEnterMode : CKEDITOR.ENTER_P,
-				filebrowserUploadUrl : "/board/regist"
-			};
-
-			CKEDITOR.replace("boardContent", ckeditor_config);
-		</script>
-		<br>
-
-		<input type="file" name="file"/>
-
+<script>CKEDITOR.replace('boardContent',{filebrowserUploadUrl:'/board/imageUpload'});</script>
 
 		<br> <input type="submit" value="글쓰기">
 	</form>

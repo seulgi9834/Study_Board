@@ -53,4 +53,36 @@ public class BoardServiceImpl implements BoardService {
 	public int deleteBoard(BoardVo vo) {
 		return dao.deleteBoard(vo);
 	}
+
+	/**
+	 * 게시물 카운트
+	 */
+	@Override
+	public int countBoard() {
+		return dao.countBoard();
+	}
+
+	/**
+	 * 게시물 페이지네이션
+	 */
+	@Override
+	public List pageBoard(int displayPost, int postNum) {
+		return dao.pageBoard(displayPost, postNum);
+	}
+
+	/**
+	 * 게시물 검색
+	 */
+	@Override
+	public List<BoardVo> searchBoard(int displayPost, int postNum, String searchType, String keyword){
+		return dao.searchBoard(displayPost, postNum, searchType, keyword);
+	}
+
+	/**
+	 * 검색된 게시물의 갯수
+	 */
+	@Override
+	public int searchCount(String searchType, String keyword) {
+		return dao.searchCount(searchType, keyword);
+	}
 }

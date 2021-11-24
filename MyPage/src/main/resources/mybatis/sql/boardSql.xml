@@ -7,8 +7,7 @@
 		NO AS boardNo
 		,TITLE AS boardTitle
 		,CONTENT AS boardContent
-		,REG_DT AS
-		regDt
+		,DATE_FORMAT(REG_DT, '%Y-%m-%d %T') AS regDt
 		,VIEWS AS boardViews
 		,WRITER AS boardWriter
 		FROM SG_BOARD
@@ -46,6 +45,7 @@
 		,VIEWS AS
 		boardViews
 		,WRITER AS boardWriter
+		,FILE_NM AS fileName
 		FROM SG_BOARD
 		WHERE NO = #{boardNo}
 	</select>
@@ -65,4 +65,70 @@
 	DELETE FROM SG_BOARD
 	WHERE NO=#{boardNo}
 	</delete>
+
+	<!-- 게시물 카운트 -->
+	<select id="countBoard" resultType="int">
+	SELECT COUNT(NO) FROM SG_BOARD
+	</select>
+
+	<!-- 게시물 페이지네이션 -->
+	<select id="pageBoard" parameterType="hashMap" resultType="BoardVo">
+	SELECT
+		NO AS boardNo
+		,TITLE AS boardTitle
+		,CONTENT AS boardContent
+		,REG_DT AS
+		regDt
+		,VIEWS AS boardViews
+		,WRITER AS boardWriter
+		FROM SG_BOARD
+		ORDER BY NO DESC
+		LIMIT #{displayPost}, #{postNum}
+	</select>
+
+	<!-- 게시물 검색 -->
+	<select id="searchBoard" parameterType="hashMap" resultType="BoardVo">
+		SELECT
+		NO AS boardNo
+		,TITLE AS boardTitle
+		,CONTENT AS boardContent
+		,REG_DT AS
+		regDt
+		,VIEWS AS boardViews
+		,WRITER AS boardWriter
+		FROM SG_BOARD
+		<if test='searchType.equals("TITLE")'>
+		WHERE TITLE LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test='searchType.equals("CONTENT")'>
+		WHERE CONTENT LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test='searchType.equals("TITLE_CONTENT")'>
+		WHERE TITLE LIKE CONCAT('%',#{keyword},'%')
+		OR CONTENT LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test='searchType.equals("WRITER")'>
+		WHERE WRITER LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		ORDER BY NO DESC
+		LIMIT #{displayPost}, #{postNum}
+	</select>
+
+	<!-- 검색된 게시물의 갯수 출력 -->
+	<select id="searchCount" parameterType="hashMap" resultType="int">
+		SELECT COUNT(NO) FROM SG_BOARD
+		<if test='searchType.equals("TITLE")'>
+		WHERE TITLE LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test='searchType.equals("CONTENT")'>
+		WHERE CONTENT LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test='searchType.equals("TITLE_CONTENT")'>
+		WHERE TITLE LIKE CONCAT('%',#{keyword},'%')
+		OR CONTENT LIKE CONCAT('%',#{keyword},'%')
+		</if>
+		<if test='searchType.equals("WRITER")'>
+		WHERE WRITER LIKE CONCAT('%',#{keyword},'%')
+		</if>
+	</select>
 </mapper>

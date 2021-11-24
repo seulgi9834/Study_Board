@@ -1,5 +1,7 @@
 package com.mypage.www.vo;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BoardVo {
@@ -7,7 +9,7 @@ public class BoardVo {
 	private Integer boardNo; // 게시물 번호
 	private String boardTitle; // 게시물 제목
 	private String boardWriter; // 게시물 저자
-	private Date regDt; // 작성 날짜
+	private String regDt; // 작성 날짜
 	private Integer boardViews; // 게시물 조회수
 	private String boardContent; // 게시물 내용
 	private String fileName; // 게시물 첨부파일명
@@ -37,10 +39,10 @@ public class BoardVo {
 	public void setBoardWriter(String boardWriter) {
 		this.boardWriter = boardWriter;
 	}
-	public Date getRegDt() {
+	public String getRegDt() {
 		return regDt;
 	}
-	public void setRegDt(Date regDt) {
+	public void setRegDt(String regDt) {
 		this.regDt = regDt;
 	}
 	public Integer getBoardViews() {
