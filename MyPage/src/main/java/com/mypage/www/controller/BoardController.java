@@ -235,6 +235,7 @@ public class BoardController {
 	@RequestMapping(value="/read/replyRegist", method = RequestMethod.POST)
 	public void replyRegist(ReplyVo replyVo, HttpSession session) {
 //		UserVo user = (UserVo)session.getAttribute("user");
+		System.out.println(replyVo.toString());
 		replyService.insertReply(replyVo);
 	}
 

@@ -1,14 +1,17 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>Home</title>
+	<!--CSS-->
+<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.css">
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
+<div id="wrap">
+<div class="green"></div>
+<div class="blue"></div>
+<div class="green"></div>
+</div>
 </body>
 </html>

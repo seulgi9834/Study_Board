@@ -10,22 +10,24 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/main.jsp" />
-	<div class="title">
-		<h2>자유게시판 글쓰기</h2>
-	</div>
+<div class="layer">
 	<form action="/board/regist" method="post"
 		enctype="multipart/form-data">
-		<label for="boardTitle">제목</label> <input id="boardTitle"
-			name="boardTitle" type="text"><br>
+<div class="input-group">
+<span class="input-group-text">제목</span>
+  <input id="boardTitle" name="boardTitle" type="text" class="form-control" placeholder="">
+  </div>
 		<input type="hidden" name="boardWriter" value="${user.userNM}" readonly="readonly"/>
-		<p>내용</p>
 		<label for="content"></label>
 		<textarea style="width: 500px; height: 500px" id="boardContent"
 			name="boardContent"></textarea>
+
+
+
 <script>CKEDITOR.replace('boardContent',{filebrowserUploadUrl:'/board/imageUpload'});</script>
 
 		<br> <input type="submit" value="글쓰기">
 	</form>
-
+</div>
 </body>
 </html>

@@ -10,12 +10,10 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/main.jsp" />
-	<div class="title">
-		<h2>자유게시판</h2>
+		<h3>자유게시판</h3>
 		<c:if test="${user!=null}">
 		<button type="button" class="btn btn-default" onclick="location.href='/write'">글쓰기</button>
 		</c:if>
-	</div>
 	<table class="table table-hover ">
 		<thead>
 			<tr>

@@ -1,12 +1,26 @@
 @charset "UTF-8";
 
+.layer{
+	padding:20px;
+}
+
+.layer_btn{
+	padding-right:5%;
+	padding-bottom:1%;
+}
+
+.layer_reply{
+	padding-left:7%;
+	padding-right:7%;
+}
+
 .table{
 	text-align:center;
-	width:80%;
-	margin-top: 5%;
-	margin-botton:5%;
-	margin-right: 10%;
-	margin-left: 10%
+	width:90%;
+	margin-left: 1%;
+	margin-right: 1%;
+
+
 
 }
 
@@ -18,20 +32,29 @@
 .title{
 	margin-left: 10%;
 
+
 }
 
 .title button{
 	float:right;
-	font-size: 20px;
-	margin-top: 15px;
-	margin-bottom : 15px;
-	margin-right: 10%;
+	font-size: 15px;
+	margin-top: 10px;
+	margin-bottom : 10px;
+	margin-right: 20%;
 }
 
 .right a{
     float:right;
-    font-size:15px;
     color:black;
+    margin-top:1%;
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+.right p{
+    float:right;
+    color:black;
+    margin-top:1%;
     text-decoration: none;
     margin-right: 30px;
 }
@@ -62,11 +85,7 @@
 	text-decoration: none;
 }
 
-.index li a:hover {
-	color:pink;
-	text-decoration:underline;
 
-}
 
 .join{
 	display: inline-block;
@@ -127,6 +146,7 @@ section.replyList{
 
 .modal{
 	display:none;
+
 }
 
 .modal__background{
@@ -138,15 +158,22 @@ section.replyList{
 
 .modal__box{
   position: absolute;
-  top: calc(50vh - 100px); left: calc(50vw - 200px);
+  top: calc(50vh - 200px); left: calc(50vw - 400px);
   background-color: white;
-  display: flex; justify-content: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
   border-radius: 10px;
-  width: 400px;
-  height: 200px;
+  width: 800px;
+  height: 400px;
 }
 
 .test{
 	display:none;
+}
+
+.reply_btn button{
+width: 40px;
+padding:2px;
+margin:3px;
 }
